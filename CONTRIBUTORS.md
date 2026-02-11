@@ -1,4 +1,4 @@
-# Contributors (in order of contribution)
+# Contributors
 
 - **Adrián Regos**  
   Project manager  
