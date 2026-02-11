@@ -26,29 +26,32 @@ The model simulates **wildfire regimes**, **fire suppression strategies**, and *
 - Prescribed burn area varies by scenario (1000–20000 ha/year)
 
 ## Repository Structure
-
+```markdown
 REMAINS_Chile/
 ├── data/
 │   ├── landscape.prob.fire.50.rda      # ignition prob + land cover (tschg=50)
 │   ├── orography.rda                   # slope, elevation, region
 │   ├── mask.study.area.rds             # study area mask
-│   ├── burnt.area.dist.*.rda           # calibrated annual burnt area by region (factor 4.0 for climate change scenario)
-│   └── fire.size.dist.*.rda            # calibrated fire size distributions
+│   ├── burnt.area.dist..rda            # calibrated annual burnt area by region (factor 4.0 for climate change scenario)
+│   └── fire.size.dist..rda             # calibrated fire size distributions
 ├── outputs/
-│   ├── 0.1/, 0.5/, 0.9/                # scenario folders
-│   │   ├── maps/                       # initial TIFF maps (only for 0.1)
-│   │   ├── result.rda                  # full simulation list
-│   │   ├── fires.txt, lc.burnt.txt, …  # tracking tables
-│   │   └── model_output.txt
-├── scripts/
-|    ├── run_model_chile.R                   # main runner script
-|    ├── params_chile.R                      # Chile-specific parameters
-|    ├── fire_risk_chile.R                   # custom fire.risk()
-|    ├── wildfires_chile.R                   # wildfire simulation
-|    ├── interface.r                         # neighborhood interface classification
-|    ├── internals.r                         # helper functions
-|    └── land.dyn.mdl.chile.R                # core model loop
-
+│   ├── 0.1/                            # low suppression scenario
+│   ├── 0.5/                            # medium suppression scenario
+│   └── 0.9/                            # high suppression scenario
+│       ├── maps/                       # initial TIFF maps (only generated for 0.1)
+│       ├── result.rda                  # full simulation list
+│       ├── fires.txt                   # tracking tables
+│       ├── lc.burnt.txt
+│       └── model_output.txt
+└── scripts/
+    ├── run_model_chile.R               # main runner script
+    ├── params_chile.R                  # Chile-specific parameters
+    ├── fire_risk_chile.R               # custom fire.risk()
+    ├── wildfires_chile.R               # wildfire simulation
+    ├── interface.r                     # neighborhood interface classification
+    ├── internals.r                     # helper functions
+    └── land.dyn.mdl.chile.R            # core model loo
+```
 ## Requirements
 
 - R ≥ 4.2
@@ -74,24 +77,24 @@ REMAINS_Chile/
 - No hidden dependencies
 - Cleaner loading scenario management via loop
 
-## Calibration Report from Calibración del submodelo de incendios forestales de REMAINS en la región Centro–Sur de Chile
+## Calibration Report
 
-This repository includes adaptations based on the ANIS Project Objective 4 report by Adrián Regos and Augusto Pablo Salonio Carbó.
+This repository includes adaptations based on the ANID Project Objective 4 report by Adrián Regos and Augusto Pablo Salonio Carbó (Calibración del submodelo de incendios forestales de REMAINS en la región Centro–Sur de Chile).
 
-**Methodology Highlights**
+**Methodology**
 
 - Fire propagation: Ignition from risk layer; spread to 8 neighbors using polynomial model (fuel load from time since last fire, topography, land cover).
 - Suppression: Fuel-based (spread rate threshold) and mosaic-based (1 ha agricultural/burnt areas).
 - Calibration: 30 simulations for 3 suppression scenarios (10%, 50%, 90%). Adjusted burnt area distributions (factors 2.5 for Ñuble/Biobío, 2 for Araucanía) to match 1999–2018 historical data. Projections 2019–2038 using 2018 land cover. Climate change scenario: burnt areas ×4.
 
-**Results Summary**
+**Results**
 
 - Burnt areas 2019–2038 (50% suppression): Increase vs 1999–2018 – Araucanía +25.8% (41,650 ha), Ñuble +24% (29,700 ha), Biobío +15.5% (39,850 ha).
 - Suppressed by fuel: Mixed changes (Ñuble +20%, Araucanía +2.8%, Biobío -3%).
 - Suppressed by mosaics: Decreases (Ñuble -28.5%, Biobío -32.6%, Araucanía -6.2%).
 - Climate change (×4): Larger burnt increases (Ñuble +26.1%, Biobío +18.2%, Araucanía +1.5%). Suppression limits highlighted, especially mosaics.
 
-**Conclusion from Report**
+**Conclusion**
 
 Model robust for simulating Chilean fire regimes. Projects notable increases under baseline and climate scenarios. Urges adaptive landscape management integrating all submodules for holistic view.
 
@@ -118,17 +121,12 @@ When publishing results obtained with this adaptation, please cite **both** the 
 
 ## Authorship
 
-Chile-specific wildfire simulation module:
+- Author: **Adrián Regos**
+  ORCID: https://orcid.org/0009-0005-9460-0764
 
-Author: **Adrián Regos**
-ORCID: https://orcid.org/0009-0005-9460-0764
-Author & maintainer: **Augusto Pablo Salonio Carbó**  
-ORCID: https://orcid.org/0009-0005-9460-0764  
-
-Based on the original REMAINS model developed by the FirESmart project.
-
-This adaptation was developed within **Proyecto ANID – Objetivo Específico 4**  
-Authors of the calibration report: Adrián Regos & Augusto Pablo Salonio Carbó  
+- Author & maintainer: **Augusto Pablo Salonio Carbó**  
+  ORCID: https://orcid.org/0009-0005-9460-0764  
+ 
 Institutions: CSIC / Misión Biológica de Galicia (MBG)
 
 ## Citation
