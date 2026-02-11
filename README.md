@@ -1,4 +1,5 @@
 # REMAINS-Chile
+[![DOI](https://zenodo.org/badge/1155263250.svg)](https://doi.org/10.5281/zenodo.18608597)
 
 **REMAINS-Chile** is a spatially explicit stochastic landscape dynamics model adapted for central-southern Chile (regions Ñuble, Biobío, and La Araucanía). 
 It builds on the original **REMAINS** model developed by the FirESmart project for Mediterranean landscapes.
