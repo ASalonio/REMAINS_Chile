@@ -1,0 +1,30 @@
+cff-version: 1.2.0
+message: "If you use this code, please cite it as below and also cite the original REMAINS paper."
+
+authors:
+  - family-names: "Regos"
+    given-names: "Adrián"
+    orcid: "https://orcid.org/0000-0003-1983-936X"
+  - family-names: "Salonio Carbó"
+    given-names: "Augusto Pablo"
+    email: "augusto93921@gmail.com"
+    orcid: "https://orcid.org/0009-0005-9460-0764"
+
+title: "REMAINS-Chile: Chile-adapted wildfire and landscape dynamics model"
+version: "0.1"
+date-released: "2026-02-11"
+url: "https://github.com/ASalonio/REMAINS_Chile"
+
+preferred-citation:
+  type: report
+  authors:
+    - family-names: "Salonio Carbó"
+      given-names: "Augusto Pablo"
+      orcid: "https://orcid.org/0009-0005-9460-0764"
+    - family-names: "Regos"
+      given-names: "Adrián"
+      orcid: "https://orcid.org/0000-0003-1983-936X"
+  title: "Calibración del submodelo de incendios forestales de REMAINS en la región Centro–Sur de Chile"
+  institution: "CSIC / Misión Biológica de Galicia (MBG)"
+  year: 2025
+  report-number: "Proyecto ANID – Objetivo Específico 4"
